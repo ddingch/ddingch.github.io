@@ -35,6 +35,9 @@ const corsOptions = {
 
 //원래위치
 
+//라우터 설정
+router.use('/api', api.routes()); // api 라우트 적용
+
 //추가된부분
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://ddingch.netlify.app');
@@ -42,9 +45,6 @@ router.use((req, res, next) => {
   res.setHeader('Set-Cookie', 'key=value; HttpOnly; SameSite=None');
   next();
 });
-
-//라우터 설정
-router.use('/api', api.routes()); // api 라우트 적용
 
 app.use(cors(corsOptions));
 
