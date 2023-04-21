@@ -38,6 +38,8 @@ export const register = async (ctx) => {
     ctx.cookies.set('access_token', token, {
       maxAge: 1000 * 60 * 60 * 24 * 7, //7일
       httpOnly: true,
+      sameSite: 'none',
+      secure: true,
     });
   } catch (e) {
     ctx.throw(500, e);
@@ -74,6 +76,8 @@ export const login = async (ctx) => {
     ctx.cookies.set('access_token', token, {
       maxAge: 1000 * 60 * 60 * 24 * 7, //7일
       httpOnly: true,
+      sameSite: 'none',
+      secure: true,
     });
   } catch (e) {
     ctx.throw(500, e);
