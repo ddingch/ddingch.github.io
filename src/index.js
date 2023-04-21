@@ -35,6 +35,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.use((ctx, next) => {
+  ctx.cookies.secure = true;
+  return next();
+});
+
 //라우터 설정
 router.use('/api', api.routes()); // api 라우트 적용
 
