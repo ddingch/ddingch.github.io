@@ -35,11 +35,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use((ctx, next) => {
-  ctx.cookies.secure = true;
-  return next();
-});
-
 //라우터 설정
 router.use('/api', api.routes()); // api 라우트 적용
 
@@ -49,6 +44,11 @@ app.use(jwtMiddleware);
 
 // app 인스턴스에 라우터 적용
 app.use(router.routes()).use(router.allowedMethods());
+
+app.use((ctx, next) => {
+  ctx.cookies.secure = true;
+  return next();
+});
 
 const __dirname = path.resolve();
 
