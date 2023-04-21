@@ -33,14 +33,6 @@ const corsOptions = {
   credentials: true,
 };
 
-//원래위치
-//추가된부분, 로그인할때 post 안됨.
-router.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://ddingch.netlify.app');
-  res.header('Access-Control-Allow-Credentials', true);
-  res.setHeader('Set-Cookie', 'key=value; HttpOnly; SameSite=None Secure');
-  next();
-});
 //라우터 설정
 router.use('/api', api.routes()); // api 라우트 적용
 
