@@ -16,6 +16,8 @@ const app = new Koa();
 const router = new Router();
 const port = process.env.PORT || 4000;
 
+app.proxy = true;
+
 mongoose
   .set('strictQuery', true)
   .connect(process.env.MONGODB_URL, { useNewUrlParser: true })
