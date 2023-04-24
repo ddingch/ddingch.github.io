@@ -1,9 +1,9 @@
 import AuthTemplate from '../components/auth/AuthTemplate';
 import LoginForm from '../containers/auth/LoginForm';
 
-const LoginPage = () => {
+const LoginPage = ({ isDarkMode }) => {
   return (
-    <AuthTemplate>
+    <AuthTemplate isDarkMode={isDarkMode}>
       <LoginForm />
     </AuthTemplate>
   );

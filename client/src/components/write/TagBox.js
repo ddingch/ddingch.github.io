@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
+import ThemeSwitch from '../common/ThemeSwitch';
 
-const TagBoxBlock = styled.div`
+const TagBoxBlock = styled(ThemeSwitch)`
     width: 100%;
     border-top: 1px solid ${palette.gray[2]};
     padding-top: 2rem;

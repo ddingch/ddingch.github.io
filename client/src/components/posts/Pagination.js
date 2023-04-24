@@ -8,6 +8,7 @@ const PaginationBlock = styled(ThemeSwitch)`
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin-bottom: 3rem;
 `;
 

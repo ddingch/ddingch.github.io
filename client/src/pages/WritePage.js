@@ -12,10 +12,7 @@ const WritePage = ({ isDarkMode, toggleDarkMode }) => {
         toggleDarkMode={toggleDarkMode}
       />
       <Responsive>
-        <EditorContainer
-          isDarkMode={isDarkMode}
-          toggleDarkMode={toggleDarkMode}
-        />
+        <EditorContainer isDarkMode={isDarkMode} />
         <TagBoxContainer />
         <WriteActionButtonsContainer />
       </Responsive>

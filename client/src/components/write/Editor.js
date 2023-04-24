@@ -10,6 +10,7 @@ const EditorBlock = styled(Responsive)`
   padding-top: 5rem;
   padding-bottom: 5rem;
 `;
+
 const TitleInput = styled.input`
   font-size: 3rem;
   outline: none;
@@ -18,6 +19,7 @@ const TitleInput = styled.input`
   border-bottom: 1px solid ${palette.gray[4]};
   margin-bottom: 2rem;
   width: 100%;
+  background-color: transparent;
 `;
 
 const QuillWrapper = styled.div`
@@ -33,9 +35,10 @@ const QuillWrapper = styled.div`
   }
 `;
 
-const Editor = ({ title, body, onChangeField }) => {
+const Editor = ({ title, body, onChangeField, isDarkMode }) => {
   const quillElement = useRef(null); //Quill을 적용할 DivElement 설정
   const quillInstance = useRef(null); //Quill 인스턴스 설정
+  const textColor = isDarkMode ? { color: 'white' } : { color: 'black' };
 
   useEffect(() => {
     quillInstance.current = new Quill(quillElement.current, {
@@ -52,7 +55,6 @@ const Editor = ({ title, body, onChangeField }) => {
     });
 
     // quill에 text-change 이벤트 핸들러 등록
-    // 참고: https://quilljs.com/docs/api/#events
     const quill = quillInstance.current;
     quill.on('text-change', (delta, oldDelta, source) => {
       if (source === 'user') {
@@ -76,11 +78,13 @@ const Editor = ({ title, body, onChangeField }) => {
     <EditorBlock>
       <TitleInput
         placeholder="제목을 입력하세요"
+        maxLength="50"
         onChange={onChangeTitle}
         value={title}
+        style={textColor}
       />
       <QuillWrapper>
-        <div ref={quillElement} />
+        <div ref={quillElement} style={textColor} />
       </QuillWrapper>
     </EditorBlock>
   );

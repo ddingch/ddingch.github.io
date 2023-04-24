@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from './Button';
+import ThemeSwitch from './ThemeSwitch';
 
 const Fullscreen = styled.div`
   position: fixed;
@@ -14,9 +15,8 @@ const Fullscreen = styled.div`
   align-items: center;
 `;
 
-const AskModalBlock = styled.div`
+const AskModalBlock = styled(ThemeSwitch)`
   width: 320px;
-  background: white;
   padding: 1.5rem;
   border-radius: 4px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.125);

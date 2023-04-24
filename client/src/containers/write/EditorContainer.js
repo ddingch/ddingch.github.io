@@ -3,7 +3,7 @@ import Editor from '../../components/write/Editor';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeField, initialize } from '../../modules/write';
 
-const EditorContainer = ({ isDarkMode, toggleDarkMode }) => {
+const EditorContainer = ({ isDarkMode }) => {
   const dispatch = useDispatch();
   const { title, body } = useSelector(({ write }) => ({
     title: write.title,
@@ -27,7 +27,6 @@ const EditorContainer = ({ isDarkMode, toggleDarkMode }) => {
       title={title}
       body={body}
       isDarkMode={isDarkMode}
-      toggleDarkMode={toggleDarkMode}
     />
   );
 };

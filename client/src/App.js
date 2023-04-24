@@ -84,7 +84,10 @@ const App = () => {
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage isDarkMode={isDarkMode} />}
+          />
           <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/write"
