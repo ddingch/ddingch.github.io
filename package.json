@@ -28,8 +28,8 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "NODE_ENV=production node src",
-    "start:dev": "nodemon --watch src/ src/index.js"
+    "start": "node src NODE_ENV=production",
+    "start:dev": "nodemon --watch src/ src/index.js NODE_ENV=devlopment"
   },
   "type": "module"
 }

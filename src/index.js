@@ -15,6 +15,7 @@ dotenv.config();
 const app = new Koa();
 const router = new Router();
 const port = process.env.PORT || 4000;
+const CLIENT_URL = process.env.REACT_APP_CLIENT_URL;
 
 mongoose
   .set('strictQuery', true)
@@ -28,7 +29,7 @@ mongoose
 
 //cors 설정
 const corsOptions = {
-  origin: 'https://ddingch.netlify.app',
+  origin: CLIENT_URL,
   allowMethods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
   credentials: true,
 };

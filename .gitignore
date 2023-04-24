@@ -3,3 +3,5 @@
 
 # api_key
 .env
+.env.development
+.env.production

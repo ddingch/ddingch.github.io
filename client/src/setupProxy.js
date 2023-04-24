@@ -1,10 +1,11 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const API_URL = process.env.REACT_APP_API_URL;
 
 module.exports = function (app) {
   app.use(
     '/api', //proxy가 필요한 path prameter를 입력합니다.
     createProxyMiddleware({
-      target: 'https://port-0-ddingch-2fjdg2blg4kawh5.sel3.cloudtype.app', //타겟이 되는 api url를 입력합니다.
+      target: API_URL, //타겟이 되는 api url를 입력합니다.
       changeOrigin: true, //대상 서버 구성에 따라 호스트 헤더가 변경되도록 설정하는 부분입니다.
     }),
   );
