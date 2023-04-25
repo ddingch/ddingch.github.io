@@ -118,7 +118,7 @@ export const list = async (ctx) => {
       .lean() //데이터를 처음부터 JSON 형태로 조회
       .exec();
     const postCount = await Post.countDocuments(query).exec(); //커스텀 헤더 설정
-    ctx.set('Last-Page', Math.ceil(postCount / 10)); //마지막 페이지번호 포스트만에 header에 가면 나옴.
+    ctx.set('last-page', Math.ceil(postCount / 10));
 
     //body의 길이가 200자 이상이면 뒤에 ... 붙이기
     ctx.body = posts.map((post) => ({

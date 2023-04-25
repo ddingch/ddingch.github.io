@@ -32,6 +32,7 @@ const corsOptions = {
   origin: CLIENT_URL,
   allowMethods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
   credentials: true,
+  exposeHeaders: ['last-page'], //커스텀헤더는 여기에 추가
 };
 
 app.use(cors(corsOptions));
